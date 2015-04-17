@@ -1,0 +1,33 @@
+% Disable section numbering and set TOC depth.
+%
+\setcounter{secnumdepth}{-1}
+\setcounter{tocdepth}{2}
+\pagestyle{normal}
+
+% Simplify the title page, to include the table of contents
+%
+\renewcommand{\maketitle}{
+  \begin{center}
+    {\rm\Huge\py@HeaderFamily \@title} \par
+  \end{center}
+  \vspace{25pt}
+  \setcounter{footnote}{0}
+  \let\maketitle\relax
+}
+
+% Add page break after table of contents
+%
+\let\py@OrigTOC=\tableofcontents
+\renewcommand{\tableofcontents}{
+  \setcounter{page}{0}%
+  \py@OrigTOC
+  \pagebreak
+}  
+
+% Simplify page headers and footers
+%
+\fancyhead{}
+\fancyfoot{}
+\fancyhead[L]{{\py@HeaderFamily \@title}}
+\fancyfoot[L]{{Revision: \version}}
+\fancyfoot[R]{{Page \thepage}}

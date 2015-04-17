@@ -1,0 +1,35 @@
+% Disable section numbering.
+%
+\setcounter{secnumdepth}{-1}
+\pagestyle{normal}
+
+% Simplify the title page
+%
+\renewcommand{\maketitle}{
+  \begin{center}
+    {\rm\Huge\py@HeaderFamily \@title} \par
+  \end{center}
+  \vspace{25pt}
+  \setcounter{footnote}{0}
+  \thispagestyle{plain}
+}
+
+% Eliminate TOC
+%
+\renewcommand{\tableofcontents}{}  
+
+% Simplify page headers and footers
+%
+\fancyhf{}
+\fancyhead[L]{{\py@HeaderFamily \@title}}
+\fancyfoot[L]{{Revision: \version}}
+\fancyfoot[R]{{Page \thepage}}
+
+% First page keeps footer only
+%
+\fancypagestyle{plain}{%
+  \fancyhf{}
+  \fancyfoot[L]{{Revision: \version}}
+  \fancyfoot[R]{{Page \thepage}}
+  \renewcommand{\headrulewidth}{0pt}
+}
